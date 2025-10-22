@@ -73,9 +73,9 @@ const dataStructure = defineCollection({
   // 文档标题，它将用于在页面的面包屑导航中显示
   title: 'DataStructure',
   // 手动配置侧边栏结构
-  // sidebar: ['', 'foo', 'bar'],
+  sidebar: ['', '1-Link', 'Link01'],
   // 根据文件结构自动生成侧边栏
-  sidebar: 'auto',
+  // sidebar: 'auto',
 })
 
 /**
