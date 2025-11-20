@@ -40,6 +40,7 @@ struct Node {
   - 非空链表：新节点的 `next` 指向原头节点，形成连接
 - **内存管理**：使用 `new` 在堆中动态分配节点内存
 - **指针更新**：必须返回新的头节点指针，因为头节点已改变
+
 ::: code-tabs
 @tab:active InsertAtHead.cpp
 ```cpp
@@ -258,3 +259,45 @@ Node* ReverseRecursion(Node* head) {
 ```
 :::
 
+## 打印链表的几种实现
+
+在下方列出打印链表的几种实现方式
+
+:::code-tabs
+@tab:active common.cpp
+```cpp
+// 打印链表的通用实现
+void Print(Node* head) {
+    using std::cout;
+    Node* temp = head;
+    cout << "链表为：";
+    while (temp != NULL) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << "\n";
+}
+
+//递归打印链表
+void PrintRecursion(Node* temp) {
+    using std::cout;
+    if (temp == NULL) {
+        cout << "\n";
+        return;
+    }
+    cout << temp->data << " ";
+    PrintRecursion(temp->next);
+}
+
+//递归打印链表，反转打印
+void PrintReverse(Node* temp) {
+    using std::cout;
+    if (temp == NULL) {
+        cout << "\n";
+        return;
+    }
+    PrintReverse(temp->next);
+    cout << temp->data << " ";
+}
+```
+:::
