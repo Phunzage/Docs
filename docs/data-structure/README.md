@@ -60,4 +60,4 @@ permalink: /data-structure/
 
 ___
 
-借鉴改编自[《Hello 算法》](https://www.hello-algo.com/)
+本笔记部分借鉴改编自[《Hello 算法》](https://www.hello-algo.com/)
