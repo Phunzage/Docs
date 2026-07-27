@@ -16,6 +16,7 @@ export default defineNavbarConfig([
     items: [
       { text: '数据结构', link: '/data-structure/' },
       { text: 'C-指针', link: '/c-pointer/' },
+      { text: 'Linux 笔记', link: '/linux-notes/' },
     ]
   },
 ])
