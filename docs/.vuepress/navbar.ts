@@ -14,7 +14,8 @@ export default defineNavbarConfig([
   {
     text: '笔记',
     items: [
-      { text: '数据结构', link: '/data-structure/README.md' },
+      { text: '数据结构', link: '/data-structure/' },
+      { text: 'C-指针', link: '/c-pointer/' },
     ]
   },
 ])

@@ -61,6 +61,19 @@ const dataStructure = defineCollection({
   sidebar: 'auto',
 })
 
+const cPointer = defineCollection({
+  // doc 类型，该类型带有侧边栏
+  type: 'doc',
+  // 文档集合所在目录，相对于 `docs`
+  dir: 'c-pointer',
+  // permalink 前缀
+  linkPrefix: '/c-pointer',
+  // 文档标题
+  title: 'C-指针',
+  // 根据文件结构自动生成侧边栏
+  sidebar: 'auto',
+})
+
 /**
  * 导出所有的 collections
  * (blog 为博客示例，如果不需要博客功能，请删除)
@@ -69,4 +82,5 @@ const dataStructure = defineCollection({
 export default defineCollection([
   blog,
   dataStructure,
+  cPointer,
 ])
