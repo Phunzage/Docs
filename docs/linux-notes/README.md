@@ -21,3 +21,7 @@ Linux 常用命令与系统管理笔记，涵盖文件操作、用户权限、�
 | [❼ 包管理与任务调度](./7.包管理与任务调度.md) | `rpm` `yum` `service` `systemctl` `crontab` `at` |
 | [❽ Vim 编辑器速查](./8.Vim编辑器速查.md) | 模式切换、复制粘贴、删除、行号、查找替换 |
 | [❾ 搜索与帮助](./9.搜索与帮助.md) | `find` `locate` `which` `grep` `man` `help` |
+
+## 参考
+
+[【小白入门 通俗易懂】韩顺平 一周学会Linux](https://www.bilibili.com/video/BV1Sv411r7vd/?spm_id_from=333.337.search-card.all.click&vd_source=1d10636c4935e1426bab0568f5ce2a76)

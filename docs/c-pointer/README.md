@@ -21,4 +21,4 @@ permalink: /c-pointer/
 
 ## 参考
 
-【【强烈推荐】4小时彻底掌握C指针 - 顶尖程序员图文讲解 - UP主翻译校对 (已完结)】 https://www.bilibili.com/video/BV1bo4y1Z7xf/?share_source=copy_web&vd_source=f4190966f2b9defc49aa3f39d53fd756
+[【强烈推荐】4小时彻底掌握C指针 - 顶尖程序员图文讲解 - UP主翻译校对 (已完结)](https://www.bilibili.com/video/BV1bo4y1Z7xf/?share_source=copy_web&vd_source=f4190966f2b9defc49aa3f39d53fd756)
