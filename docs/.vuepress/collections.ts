@@ -87,6 +87,14 @@ const linuxNotes = defineCollection({
   sidebar: 'auto',
 })
 
+const goNotes = defineCollection({
+  type: 'doc',
+  dir: 'go-notes',
+  linkPrefix: '/go-notes',
+  title: 'Go 语言',
+  sidebar: 'auto',
+})
+
 /**
  * 导出所有的 collections
  * (blog 为博客示例，如果不需要博客功能，请删除)
@@ -97,4 +105,5 @@ export default defineCollection([
   dataStructure,
   cPointer,
   linuxNotes,
+  goNotes,
 ])
