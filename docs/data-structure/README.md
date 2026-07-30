@@ -41,11 +41,12 @@ permalink: /data-structure/
 
 ## 文章链接
 点击链接或左侧导航栏即可进入对应章节
+- [数组](./0.数组/README.md)
 - [链表](./1.链表/README.md)
 - [栈](./2.栈/README.md)
 - [队列](./3.队列/README.md)
 - [树](./4.树/README.md)
-- [图](./5.图/README.md)
+- [图](./5.图/README.md) — [详细](./5.图/详细.md)
 
 ## 数据结构对比总结
 
