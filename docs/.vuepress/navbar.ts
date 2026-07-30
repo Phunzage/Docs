@@ -18,6 +18,7 @@ export default defineNavbarConfig([
       { text: 'C-指针', link: '/c-pointer/' },
       { text: 'Linux 笔记', link: '/linux-notes/' },
       { text: 'Go 语言', link: '/go-notes/' },
+      { text: '计算机网络', link: '/computer-network/' },
     ]
   },
 ])

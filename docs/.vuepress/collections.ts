@@ -95,6 +95,14 @@ const goNotes = defineCollection({
   sidebar: 'auto',
 })
 
+const computerNetwork = defineCollection({
+  type: 'doc',
+  dir: 'computer-network',
+  linkPrefix: '/computer-network',
+  title: '计算机网络',
+  sidebar: 'auto',
+})
+
 /**
  * 导出所有的 collections
  * (blog 为博客示例，如果不需要博客功能，请删除)
@@ -106,4 +114,5 @@ export default defineCollection([
   cPointer,
   linuxNotes,
   goNotes,
+  computerNetwork,
 ])
