@@ -46,6 +46,20 @@ const int MAX_SIZE = 101;
 int A[MAX_SIZE]{};
 int top = -1;
 ```
+@tab Go
+```go
+// 基于数组实现的栈
+type arrayStack struct {
+	data []int // 数据
+}
+
+// 初始化栈
+func newArrayStack() *arrayStack {
+	return &arrayStack{
+		data: make([]int, 0, 16),
+	}
+}
+```
 :::
 
 ### 入栈操作
@@ -76,6 +90,13 @@ void PushUseA(int x) {
 	A[++top] = x;
 }
 ```
+@tab Go
+```go
+// 入栈（切片会自动扩容）
+func (s *arrayStack) push(v int) {
+	s.data = append(s.data, v)
+}
+```
 :::
 
 ### 出栈操作
@@ -102,6 +123,15 @@ void PopUseA() {
 	top--;
 }
 ```
+@tab Go
+```go
+// 出栈
+func (s *arrayStack) pop() any {
+	val := s.peek()
+	s.data = s.data[:len(s.data)-1]
+	return val
+}
+```
 :::
 
 ### 访问栈顶元素
@@ -119,6 +149,17 @@ void PopUseA() {
 ```cpp
 int TopUseA() {
 	return A[top];
+}
+```
+@tab Go
+```go
+// 获取栈顶元素
+func (s *arrayStack) peek() any {
+	if s.isEmpty() {
+		return nil
+	}
+	val := s.data[len(s.data)-1]
+	return val
 }
 ```
 :::
@@ -143,6 +184,13 @@ void PrintUseA() {
 		cout << A[i] << " ";
 	}
 	cout << "\n";
+}
+```
+@tab Go
+```go
+// 获取 Slice 用于打印
+func (s *arrayStack) toSlice() []int {
+	return s.data
 }
 ```
 :::
@@ -173,6 +221,22 @@ struct Node {
 	Node* next;
 };
 ```
+@tab Go
+```go
+import "container/list"
+
+// 基于链表实现的栈
+type linkedListStack struct {
+	data *list.List
+}
+
+// 初始化栈
+func newLinkedListStack() *linkedListStack {
+	return &linkedListStack{
+		data: list.New(),
+	}
+}
+```
 :::
 
 ### 入栈操作（链表头部插入节点）
@@ -202,6 +266,13 @@ Node* PushUseL(Node* top, int x) {
 	temp->next = top;
 	top = temp;
 	return top;
+}
+```
+@tab Go
+```go
+// 入栈
+func (s *linkedListStack) push(value int) {
+	s.data.PushBack(value)
 }
 ```
 :::
@@ -237,6 +308,18 @@ Node* PopUseL(Node* top) {
 	return top;
 }
 ```
+@tab Go
+```go
+// 出栈
+func (s *linkedListStack) pop() any {
+	if s.isEmpty() {
+		return nil
+	}
+	e := s.data.Back()
+	s.data.Remove(e)
+	return e.Value
+}
+```
 :::
 
 ### 打印栈元素
@@ -267,6 +350,13 @@ void PrintUseL(Node* top) {
 	cout << "\n";
 }
 ```
+@tab Go
+```go
+// 获取 List 用于打印
+func (s *linkedListStack) toList() *list.List {
+	return s.data
+}
+```
 :::
 
 ### 访问栈顶元素
@@ -292,6 +382,16 @@ int TopUseL(Node* top) {
         return top->data;
     }
     return -1; // 返回-1表示栈为空
+}
+```
+@tab Go
+```go
+// 访问栈顶元素
+func (s *linkedListStack) peek() any {
+	if s.isEmpty() {
+		return nil
+	}
+	return s.data.Back().Value
 }
 ```
 :::

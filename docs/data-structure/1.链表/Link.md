@@ -18,6 +18,22 @@ struct Node {
     Node* next;
 };
 ```
+@tab Go
+```go
+// 链表节点结构体
+type ListNode struct {
+	Val  int       // 节点值
+	Next *ListNode // 指向下一节点的指针
+}
+
+// NewListNode 初始化链表节点
+func NewListNode(val int) *ListNode {
+	return &ListNode{
+		Val:  val,
+		Next: nil,
+	}
+}
+```
 :::
 
 ## 链表头部插入节点
@@ -59,6 +75,16 @@ Node* InsertAtHead(Node* head, int x) {
 	temp->next = head;
 	head = temp;
 	return head;
+}
+```
+@tab Go
+```go
+// 链表头部插入节点
+func insertAtHead(head *ListNode, val int) *ListNode {
+	temp := &ListNode{Val: val}
+	temp.Next = head
+	head = temp
+	return head
 }
 ```
 :::
@@ -115,6 +141,25 @@ Node* InsertAtPosition(Node* head, int data, int n) {
 	return head;
 }
 ```
+@tab Go
+```go
+// 任意位置插入节点
+func insertAtPosition(head *ListNode, data int, n int) *ListNode {
+	newNode := &ListNode{Val: data}
+	if n == 1 {
+		newNode.Next = head
+		head = newNode
+		return head
+	}
+	current := head
+	for i := 0; i < n-2; i++ {
+		current = current.Next
+	}
+	newNode.Next = current.Next
+	current.Next = newNode
+	return head
+}
+```
 :::
 
 ## 任意位置删除节点
@@ -164,6 +209,25 @@ Node* Move(Node* head, int n) {
 		delete(temp2);
 	}
 	return head;
+}
+```
+@tab Go
+```go
+// 任意位置删除节点（Go自动垃圾回收，无需手动释放内存）
+func deleteAtPosition(head *ListNode, n int) *ListNode {
+	if head == nil {
+		return head
+	}
+	if n == 1 {
+		head = head.Next
+		return head
+	}
+	current := head
+	for i := 0; i < n-2; i++ {
+		current = current.Next
+	}
+	current.Next = current.Next.Next
+	return head
 }
 ```
 :::
@@ -218,6 +282,21 @@ Node* Reverse(Node* head) {
 	return head;
 }
 ```
+@tab Go
+```go
+// 反转链表（迭代法）
+func reverse(head *ListNode) *ListNode {
+	var prev *ListNode
+	current := head
+	for current != nil {
+		next := current.Next
+		current.Next = prev
+		prev = current
+		current = next
+	}
+	return prev
+}
+```
 :::
 
 ### 递归方法
@@ -255,6 +334,19 @@ Node* ReverseRecursion(Node* head) {
 	head->next->next = head;
 	head->next = NULL;
 	return newHead;
+}
+```
+@tab Go
+```go
+// 反转链表（递归法）
+func reverseRecursion(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	newHead := reverseRecursion(head.Next)
+	head.Next.Next = head
+	head.Next = nil
+	return newHead
 }
 ```
 :::
@@ -298,6 +390,41 @@ void PrintReverse(Node* temp) {
     }
     PrintReverse(temp->next);
     cout << temp->data << " ";
+}
+```
+@tab Go
+```go
+import "fmt"
+
+// 打印链表
+func printList(head *ListNode) {
+	temp := head
+	fmt.Print("链表为：")
+	for temp != nil {
+		fmt.Print(temp.Val, " ")
+		temp = temp.Next
+	}
+	fmt.Println()
+}
+
+// 递归打印链表
+func printRecursion(temp *ListNode) {
+	if temp == nil {
+		fmt.Println()
+		return
+	}
+	fmt.Print(temp.Val, " ")
+	printRecursion(temp.Next)
+}
+
+// 递归打印链表（反转）
+func printReverse(temp *ListNode) {
+	if temp == nil {
+		fmt.Println()
+		return
+	}
+	printReverse(temp.Next)
+	fmt.Print(temp.Val, " ")
 }
 ```
 :::

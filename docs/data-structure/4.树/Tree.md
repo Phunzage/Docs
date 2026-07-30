@@ -54,8 +54,10 @@ permalink: /data-structure/tree/
 
 ## 三、节点结构定义
 
-### C++ 版本
+### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — BstNode 结构"
 struct BstNode {
     int data;
@@ -66,8 +68,7 @@ struct BstNode {
 };
 ```
 
-### Go 版本
-
+@tab Go
 ```go title="Go — TreeNode 结构"
 type TreeNode struct {
     Data  int
@@ -79,6 +80,7 @@ func NewTreeNode(val int) *TreeNode {
     return &TreeNode{Data: val, Left: nil, Right: nil}
 }
 ```
+:::
 
 ---
 
@@ -90,8 +92,10 @@ func NewTreeNode(val int) *TreeNode {
 - 若待插值 ≤ 当前节点值，递归插入左子树
 - 否则递归插入右子树
 
-### C++ 实现（递归）
+### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — Insert"
 BstNode* Insert(BstNode* root, int data) {
     if (root == nullptr) {
@@ -106,8 +110,7 @@ BstNode* Insert(BstNode* root, int data) {
 }
 ```
 
-### Go 实现（递归）
-
+@tab Go
 ```go title="Go — Insert"
 func Insert(root *TreeNode, data int) *TreeNode {
     if root == nil {
@@ -121,6 +124,7 @@ func Insert(root *TreeNode, data int) *TreeNode {
     return root
 }
 ```
+:::
 
 ---
 
@@ -133,8 +137,10 @@ func Insert(root *TreeNode, data int) *TreeNode {
 - 目标值 > 当前节点 → 搜索右子树
 - 到达空节点 → 不存在
 
-### C++ 实现
+### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — Search"
 bool Search(BstNode* root, int data) {
     if (root == nullptr) return false;
@@ -147,8 +153,7 @@ bool Search(BstNode* root, int data) {
 }
 ```
 
-### Go 实现
-
+@tab Go
 ```go title="Go — Search"
 func Search(root *TreeNode, data int) bool {
     if root == nil {
@@ -163,6 +168,7 @@ func Search(root *TreeNode, data int) bool {
     return Search(root.Right, data)
 }
 ```
+:::
 
 ---
 
@@ -172,8 +178,10 @@ BST 中最小的节点在最左边，最大的节点在最右边。
 
 ### 6.1 FindMin（迭代 + 递归）
 
-#### C++ 版本
+#### 实现
 
+::: code-tabs
+@tab:active C++ 迭代
 ```cpp title="C++ — FindMin (迭代)"
 int FindMin(BstNode* root) {
     if (root == nullptr) {
@@ -186,6 +194,22 @@ int FindMin(BstNode* root) {
 }
 ```
 
+@tab Go 迭代
+```go title="Go — FindMin (迭代)"
+func FindMin(root *TreeNode) int {
+    if root == nil {
+        panic("Tree is empty")
+    }
+    for root.Left != nil {
+        root = root.Left
+    }
+    return root.Data
+}
+```
+:::
+
+::: code-tabs
+@tab:active C++ 递归
 ```cpp title="C++ — FindMin (递归)"
 int FindMinRecursive(BstNode* root) {
     if (root == nullptr) {
@@ -198,20 +222,7 @@ int FindMinRecursive(BstNode* root) {
 }
 ```
 
-#### Go 版本
-
-```go title="Go — FindMin (迭代)"
-func FindMin(root *TreeNode) int {
-    if root == nil {
-        panic("Tree is empty")
-    }
-    for root.Left != nil {
-        root = root.Left
-    }
-    return root.Data
-}
-```
-
+@tab Go 递归
 ```go title="Go — FindMin (递归)"
 func FindMinRecursive(root *TreeNode) int {
     if root == nil {
@@ -223,11 +234,14 @@ func FindMinRecursive(root *TreeNode) int {
     return FindMinRecursive(root.Left)
 }
 ```
+:::
 
 ### 6.2 FindMax（迭代 + 递归）
 
-#### C++ 版本
+#### 实现
 
+::: code-tabs
+@tab:active C++ 迭代
 ```cpp title="C++ — FindMax (迭代)"
 int FindMax(BstNode* root) {
     if (root == nullptr) {
@@ -240,6 +254,22 @@ int FindMax(BstNode* root) {
 }
 ```
 
+@tab Go 迭代
+```go title="Go — FindMax (迭代)"
+func FindMax(root *TreeNode) int {
+    if root == nil {
+        panic("Tree is empty")
+    }
+    for root.Right != nil {
+        root = root.Right
+    }
+    return root.Data
+}
+```
+:::
+
+::: code-tabs
+@tab:active C++ 递归
 ```cpp title="C++ — FindMax (递归)"
 int FindMaxRecursive(BstNode* root) {
     if (root == nullptr) {
@@ -252,20 +282,7 @@ int FindMaxRecursive(BstNode* root) {
 }
 ```
 
-#### Go 版本
-
-```go title="Go — FindMax (迭代)"
-func FindMax(root *TreeNode) int {
-    if root == nil {
-        panic("Tree is empty")
-    }
-    for root.Right != nil {
-        root = root.Right
-    }
-    return root.Data
-}
-```
-
+@tab Go 递归
 ```go title="Go — FindMax (递归)"
 func FindMaxRecursive(root *TreeNode) int {
     if root == nil {
@@ -277,6 +294,7 @@ func FindMaxRecursive(root *TreeNode) int {
     return FindMaxRecursive(root.Right)
 }
 ```
+:::
 
 ---
 
@@ -298,8 +316,10 @@ func FindMaxRecursive(root *TreeNode) int {
       4   7         高度 = 0
 ```
 
-### C++ 实现
+### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — FindHeight"
 #include <algorithm>
 
@@ -311,8 +331,7 @@ int FindHeight(BstNode* root) {
 }
 ```
 
-### Go 实现
-
+@tab Go
 ```go title="Go — FindHeight"
 func FindHeight(root *TreeNode) int {
     if root == nil {
@@ -326,6 +345,7 @@ func FindHeight(root *TreeNode) int {
     return rightHeight + 1
 }
 ```
+:::
 
 ---
 
@@ -345,8 +365,10 @@ func FindHeight(root *TreeNode) int {
 前序结果: 8 → 3 → 1 → 6 → 10 → 14
 ```
 
-#### C++ 实现
+#### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — Preorder"
 #include <iostream>
 
@@ -358,8 +380,7 @@ void Preorder(BstNode* root) {
 }
 ```
 
-#### Go 实现
-
+@tab Go
 ```go title="Go — Preorder"
 import "fmt"
 
@@ -372,6 +393,7 @@ func Preorder(root *TreeNode) {
     Preorder(root.Right)
 }
 ```
+:::
 
 ### 8.2 中序遍历（Inorder: 左 → 根 → 右）
 
@@ -381,8 +403,10 @@ func Preorder(root *TreeNode) {
 中序结果: 1 → 3 → 6 → 8 → 10 → 14
 ```
 
-#### C++ 实现
+#### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — Inorder"
 void Inorder(BstNode* root) {
     if (root == nullptr) return;
@@ -392,8 +416,7 @@ void Inorder(BstNode* root) {
 }
 ```
 
-#### Go 实现
-
+@tab Go
 ```go title="Go — Inorder"
 func Inorder(root *TreeNode) {
     if root == nil {
@@ -404,6 +427,7 @@ func Inorder(root *TreeNode) {
     Inorder(root.Right)
 }
 ```
+:::
 
 ### 8.3 后序遍历（Postorder: 左 → 右 → 根）
 
@@ -413,8 +437,10 @@ func Inorder(root *TreeNode) {
 后序结果: 1 → 6 → 3 → 14 → 10 → 8
 ```
 
-#### C++ 实现
+#### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — Postorder"
 void Postorder(BstNode* root) {
     if (root == nullptr) return;
@@ -424,8 +450,7 @@ void Postorder(BstNode* root) {
 }
 ```
 
-#### Go 实现
-
+@tab Go
 ```go title="Go — Postorder"
 func Postorder(root *TreeNode) {
     if root == nil {
@@ -436,6 +461,7 @@ func Postorder(root *TreeNode) {
     fmt.Print(root.Data, " ")
 }
 ```
+:::
 
 ### 8.4 层序遍历（Level Order / BFS）
 
@@ -445,8 +471,10 @@ func Postorder(root *TreeNode) {
 层序结果: 8 → 3 → 10 → 1 → 6 → 14
 ```
 
-#### C++ 实现
+#### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — LevelOrder (队列 + 迭代)"
 #include <queue>
 
@@ -468,8 +496,7 @@ void LevelOrder(BstNode* root) {
 }
 ```
 
-#### Go 实现
-
+@tab Go
 ```go title="Go — LevelOrder (队列 + 迭代)"
 type Queue []*TreeNode
 
@@ -493,6 +520,7 @@ func LevelOrder(root *TreeNode) {
     }
 }
 ```
+:::
 
 ---
 
@@ -536,8 +564,10 @@ func LevelOrder(root *TreeNode) {
 
 > 上例中，节点 3 的右子树最小值为 4（中序后继），将 4 复制到节点 3，然后删除原节点 4。
 
-### C++ 实现
+### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — Delete"
 BstNode* FindMinNode(BstNode* root) {
     while (root->left != nullptr) root = root->left;
@@ -573,8 +603,7 @@ BstNode* Delete(BstNode* root, int data) {
 }
 ```
 
-### Go 实现
-
+@tab Go
 ```go title="Go — Delete"
 func findMinNode(root *TreeNode) *TreeNode {
     for root.Left != nil {
@@ -606,6 +635,7 @@ func Delete(root *TreeNode, data int) *TreeNode {
     return root
 }
 ```
+:::
 
 ---
 
@@ -627,8 +657,10 @@ func Delete(root *TreeNode, data int) *TreeNode {
       (3,6)4
 ```
 
-#### C++ 实现
+#### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — isBST (范围法)"
 #include <climits>
 
@@ -644,8 +676,7 @@ bool IsBinarySearchTree(BstNode* root) {
 }
 ```
 
-#### Go 实现
-
+@tab Go
 ```go title="Go — isBST (范围法)"
 import "math"
 
@@ -664,6 +695,7 @@ func IsBST(root *TreeNode) bool {
     return isBstUtil(root, math.MinInt, math.MaxInt)
 }
 ```
+:::
 
 ### 方法二：中序遍历法
 
@@ -694,8 +726,10 @@ func IsBSTInorder(root *TreeNode) bool {
 
 ## 十一、完整示例
 
-### C++ 完整代码
+### 实现
 
+::: code-tabs
+@tab:active C++
 ```cpp title="C++ — BST 完整示例"
 #include <iostream>
 #include <queue>
@@ -841,8 +875,7 @@ int main() {
 }
 ```
 
-### Go 完整代码
-
+@tab Go
 ```go title="Go — BST 完整示例"
 package main
 
@@ -941,8 +974,8 @@ func Postorder(root *TreeNode) {
         return
     }
     Postorder(root.Left)
-    Postorder(root.Right)
     fmt.Print(root.Data, " ")
+    Postorder(root.Right)
 }
 
 type Queue []*TreeNode
@@ -1035,6 +1068,7 @@ func main() {
     fmt.Print("After delete(3): "); Inorder(root); fmt.Println()
 }
 ```
+:::
 
 ---
 
