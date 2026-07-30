@@ -61,4 +61,6 @@ permalink: /data-structure/
 
 ___
 
+原始笔记地址（Go）：[GitHub - Phunzage/Go-Algo](https://github.com/Phunzage/Go-Algo)
+
 本笔记部分借鉴改编自[《Hello 算法》](https://www.hello-algo.com/)
