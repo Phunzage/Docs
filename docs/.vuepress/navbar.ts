@@ -19,6 +19,7 @@ export default defineNavbarConfig([
       { text: 'Linux 笔记', link: '/linux-notes/' },
       { text: 'Go 语言', link: '/go-notes/' },
       { text: '计算机网络', link: '/computer-network/' },
+      { text: 'SQL 笔记', link: '/sql-notes/' },
     ]
   },
 ])

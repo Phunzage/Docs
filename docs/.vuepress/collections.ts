@@ -103,6 +103,14 @@ const computerNetwork = defineCollection({
   sidebar: 'auto',
 })
 
+const sqlNotes = defineCollection({
+  type: 'doc',
+  dir: 'sql-notes',
+  linkPrefix: '/sql-notes',
+  title: 'SQL 笔记',
+  sidebar: 'auto',
+})
+
 /**
  * 导出所有的 collections
  * (blog 为博客示例，如果不需要博客功能，请删除)
@@ -115,4 +123,5 @@ export default defineCollection([
   linuxNotes,
   goNotes,
   computerNetwork,
+  sqlNotes,
 ])
